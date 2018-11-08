@@ -11,7 +11,8 @@ using Id3.Id3v2;
 using UnityEngine.UI;
 public class Mp3ToAudioClip : MonoBehaviour {
 
-    string url = "file:///H:/1.mp3";
+    [SerializeField] string filepath = "C:/1.mp3";
+    string url = "file:///";
     string tempFile = "";
     [SerializeField] string[] tags = new string[3];
 
@@ -20,6 +21,7 @@ public class Mp3ToAudioClip : MonoBehaviour {
 
     private void Start()
     {
+        url += filepath;
         StartCoroutine(GetAudioClip());
         tempFile = Application.dataPath + "/../bytes1.wav";
     }
@@ -43,12 +45,13 @@ public class Mp3ToAudioClip : MonoBehaviour {
 
             using (WaveStream pcm = new Mp3FileReader(stream))
             {
-                using (var mp3 = new Mp3File("H:/1.mp3"))
+                
+                using (var mp3 = new Mp3File(filepath))
                 {
                     Id3Tag tag = mp3.GetTag(Id3TagFamily.Version2x);
                     text[0].text = "タイトル　" + tag.Title.Value;
                     text[1].text ="アーティスト名　"　+ tag.Artists.Value[0];
-                    //Debug.Log(tag.Album.EncodingType);
+                    Debug.Log(tag.Album.EncodingType);
                     var bytesData = System.Text.Encoding.GetEncoding(932).GetBytes(tag.Album.Value);
                     var str = System.Text.Encoding.UTF8.GetString(bytesData);
 
@@ -59,6 +62,8 @@ public class Mp3ToAudioClip : MonoBehaviour {
                     tex.LoadImage(pic);
                     image.texture = tex;
                 }
+
+                
                     wavByte = new byte[pcm.Length];
                 //wavByteに読み込み
                 //pcm.Read(wavByte, 0,(int)pcm.Length);

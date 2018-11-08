@@ -2,7 +2,7 @@
 
 mp3ファイルをUnityで動的読み込みをするもの
 タイトルやアルバムアートワーク等も表示できる
-https://twitter.com/SAyanada9/status/932334435986423808
+![default](https://user-images.githubusercontent.com/22199654/48194103-6dfe2200-e38f-11e8-8133-3fba695d1f17.PNG)
 
 
 tagを UTF-16(Unicode)のID3v2に変換しないとエラーを吐きます

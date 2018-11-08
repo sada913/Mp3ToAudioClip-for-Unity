@@ -10,5 +10,5 @@ tagを UTF-16(Unicode)のID3v2に変換しないとエラーを吐きます
 
 具体的にはアルバムアートワークの部分がエンコードエラーになります
 
-[mp3tag](https://freesoft-100.com/review/mp3tag.php)
+[mp3tag](https://www.mp3tag.de/en/)
 あたりを使って変換してね
